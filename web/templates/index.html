@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniSQL Compiler Visualizer — Principles of Compiler Design</title>
+    <!-- Modern Google Font: Inter & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --bg-card: rgba(22, 27, 34, 0.75);
+            --bg-glass: rgba(33, 38, 45, 0.6);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --accent-green: #4ade80;
+            --accent-yellow: #fde047;
+            --accent-red: #f87171;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --font-main: 'Inter', sans-serif;
+            --font-code: 'Fira Code', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(192, 132, 252, 0.12) 0px, transparent 50%);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            min-height: 100vh;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 28px;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            background: var(--bg-glass);
+            color: var(--text-main);
+            border: 1px solid var(--border-glass);
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0284c7, #7c3aed);
+            border: none;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .panel-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sample-select {
+            background: var(--bg-dark);
+            color: var(--text-main);
+            border: 1px solid var(--border-glass);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            outline: none;
+        }
+
+        textarea.code-editor {
+            width: 100%;
+            height: 280px;
+            background: rgba(13, 17, 23, 0.9);
+            color: #e6edf3;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            padding: 14px;
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            resize: vertical;
+            outline: none;
+            line-height: 1.5;
+        }
+
+        textarea.code-editor:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+        }
+
+        .schema-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 14px;
+            max-height: 240px;
+            overflow-y: auto;
+        }
+
+        .schema-table-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 6px;
+        }
+
+        .schema-col {
+            font-family: var(--font-code);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-left: 8px;
+            margin-bottom: 4px;
+        }
+
+        /* Tabs */
+        .tabs-header {
+            display: flex;
+            gap: 6px;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 10px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-cyan);
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            flex: 1;
+            overflow-y: auto;
+            max-height: 620px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        pre.code-view {
+            background: var(--bg-dark);
+            color: #38bdf8;
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-glass);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+        }
+
+        table.data-table th {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-cyan);
+            text-align: left;
+            padding: 10px 14px;
+            font-weight: 700;
+        }
+
+        table.data-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-glass);
+            color: var(--text-main);
+            font-family: var(--font-code);
+        }
+
+        table.data-table tr:hover td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .error-box {
+            background: rgba(248, 113, 113, 0.15);
+            border: 1px solid rgba(248, 113, 113, 0.4);
+            color: var(--accent-red);
+            padding: 16px;
+            border-radius: 12px;
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+        }
+
+        .metric-pill {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            background: rgba(74, 222, 128, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            <span>⚡ MiniSQL Compiler Visualizer</span>
+            <span class="badge">Course: PCD</span>
+        </h1>
+        <div class="header-actions">
+            <button class="btn" onclick="resetDb()">🔄 Reset Database</button>
+            <button class="btn btn-primary" onclick="compileSql()">▶ Run Compiler Pipeline</button>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <!-- Left Column: Input & Schema -->
+        <div class="panel">
+            <div class="panel-title">
+                <span>SQL Source Code</span>
+                <select class="sample-select" id="sample-select" onchange="loadSample()">
+                    <option value="select">Simple SELECT</option>
+                    <option value="where">WHERE & Logic</option>
+                    <option value="join">INNER JOIN</option>
+                    <option value="group">GROUP BY & Aggregates</option>
+                    <option value="schema">CREATE TABLE</option>
+                </select>
+            </div>
+
+            <textarea id="sql-input" class="code-editor" placeholder="Enter SQL query here...">SELECT s.name, c.title, e.grade FROM students s JOIN enrollments e ON s.id = e.student_id JOIN courses c ON e.course_id = c.course_id WHERE s.gpa >= 3.5;</textarea>
+
+            <div class="panel-title">
+                <span>Database Schema Catalog</span>
+                <button class="btn" style="padding: 4px 8px; font-size: 0.75rem;" onclick="loadSchema()">Refresh</button>
+            </div>
+
+            <div class="schema-card" id="schema-container">
+                <div style="color: var(--text-muted); font-size: 0.8rem;">Loading catalog...</div>
+            </div>
+        </div>
+
+        <!-- Right Column: Compiler Phases Output -->
+        <div class="panel">
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="switchTab('phase-results')">Result</button>
+                <button class="tab-btn" onclick="switchTab('phase-1')">Phase 1: Tokens</button>
+                <button class="tab-btn" onclick="switchTab('phase-2')">Phase 2: AST</button>
+                <button class="tab-btn" onclick="switchTab('phase-3')">Phase 3: Semantic</button>
+                <button class="tab-btn" onclick="switchTab('phase-4')">Phase 4: IR & TAC</button>
+                <button class="tab-btn" onclick="switchTab('phase-5')">Phase 5: Optimizer</button>
+                <button class="tab-btn" onclick="switchTab('phase-6')">Phase 6: Bytecode</button>
+            </div>
+
+            <!-- Tab 0: Results -->
+            <div id="phase-results" class="tab-content active">
+                <div id="results-container">
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Click "Run Compiler Pipeline" to execute your query.</div>
+                </div>
+            </div>
+
+            <!-- Tab 1: Tokens -->
+            <div id="phase-1" class="tab-content">
+                <table class="data-table" id="tokens-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Lexeme</th>
+                            <th>Value</th>
+                            <th>Line:Col</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- Tab 2: AST -->
+            <div id="phase-2" class="tab-content">
+                <pre class="code-view" id="ast-view">// Abstract Syntax Tree will appear here...</pre>
+            </div>
+
+            <!-- Tab 3: Semantic Analysis -->
+            <div id="phase-3" class="tab-content">
+                <pre class="code-view" id="semantic-view">// Semantic analysis output...</pre>
+            </div>
+
+            <!-- Tab 4: IR & TAC -->
+            <div id="phase-4" class="tab-content">
+                <h4 style="color: var(--accent-cyan); margin-bottom: 8px;">Logical Query Plan</h4>
+                <pre class="code-view" id="ir-view">// Relational algebra tree...</pre>
+                <h4 style="color: var(--accent-purple); margin-top: 16px; margin-bottom: 8px;">Three-Address Code (TAC)</h4>
+                <pre class="code-view" id="tac-view">// TAC quadruples...</pre>
+            </div>
+
+            <!-- Tab 5: Optimizer -->
+            <div id="phase-5" class="tab-content">
+                <h4 style="color: var(--accent-green); margin-bottom: 8px;">Optimization Pass Report</h4>
+                <pre class="code-view" id="opt-report-view">// Passes applied...</pre>
+                <h4 style="color: var(--accent-cyan); margin-top: 16px; margin-bottom: 8px;">Optimized Plan</h4>
+                <pre class="code-view" id="opt-plan-view">// Plan post optimization...</pre>
+            </div>
+
+            <!-- Tab 6: Bytecode -->
+            <div id="phase-6" class="tab-content">
+                <pre class="code-view" id="bytecode-view">// Disassembled VM bytecode...</pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SAMPLES = {
+            select: "SELECT name, age, gpa FROM students;",
+            where: "SELECT name, age, age + 1 AS next_age FROM students WHERE age >= 21 AND gpa > 3.0;",
+            join: "SELECT s.name, c.title, e.grade\nFROM students s\nJOIN enrollments e ON s.id = e.student_id\nJOIN courses c ON e.course_id = c.course_id;",
+            group: "SELECT c.department, COUNT(*) AS course_count, AVG(c.credits) AS avg_credits\nFROM courses c\nGROUP BY c.department;",
+            schema: "CREATE TABLE teachers (id INT PRIMARY KEY, name TEXT, dept TEXT);"
+        };
+
+        function loadSample() {
+            const val = document.getElementById("sample-select").value;
+            if (SAMPLES[val]) {
+                document.getElementById("sql-input").value = SAMPLES[val];
+            }
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        async function loadSchema() {
+            const res = await fetch("/api/schema");
+            const data = await res.json();
+            const container = document.getElementById("schema-container");
+            container.innerHTML = "";
+
+            data.tables.forEach(tbl => {
+                const div = document.createElement("div");
+                div.style.marginBottom = "12px";
+                let colsHtml = tbl.columns.map(c => 
+                    `<div class="schema-col">• ${c.name} <span style="color: #60a5fa;">${c.type}</span> ${c.pk ? '<span style="color: var(--accent-yellow);">(PK)</span>' : ''}</div>`
+                ).join("");
+                div.innerHTML = `
+                    <div class="schema-table-title">📂 ${tbl.name} (${tbl.row_count} rows)</div>
+                    ${colsHtml}
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        async function resetDb() {
+            await fetch("/api/reset", { method: "POST" });
+            loadSchema();
+            alert("Database reset successfully!");
+        }
+
+        async function compileSql() {
+            const sql = document.getElementById("sql-input").value;
+            const resContainer = document.getElementById("results-container");
+            resContainer.innerHTML = `<div style="color: var(--accent-cyan);">Executing compiler pipeline...</div>`;
+
+            try {
+                const response = await fetch("/api/compile", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ sql: sql, optimize: true })
+                });
+
+                const data = await response.json();
+
+                if (data.errors) {
+                    document.getElementById("semantic-view").textContent = data.semantic ||
+                        `Semantic analysis was not run (${data.phase} phase error).`;
+                    resContainer.innerHTML = `<div class="error-box">❌ ${data.phase} Phase Error:\n\n${data.errors.join("\n\n")}</div>`;
+                    return;
+                }
+
+                // Render Phase 1: Tokens
+                const tbody = document.querySelector("#tokens-table tbody");
+                tbody.innerHTML = "";
+                data.tokens.forEach((t, i) => {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `
+                        <td>${i}</td>
+                        <td style="color: var(--accent-purple); font-weight:600;">${t.type}</td>
+                        <td><code>${t.lexeme}</code></td>
+                        <td><code>${t.value}</code></td>
+                        <td>${t.line}:${t.col}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                // Render Phase 2: AST
+                document.getElementById("ast-view").textContent = data.ast;
+
+                // Render Phase 3: Semantic Analysis
+                document.getElementById("semantic-view").textContent = data.semantic;
+
+                // Render Phase 4: IR & TAC
+                document.getElementById("ir-view").textContent = data.ir_plans;
+                document.getElementById("tac-view").textContent = data.tac || "(No TAC instructions)";
+
+                // Render Phase 5: Optimizer
+                document.getElementById("opt-report-view").textContent = data.opt_report || "No optimizations applied.";
+                document.getElementById("opt-plan-view").textContent = data.opt_plans;
+
+                // Render Phase 6: Bytecode
+                document.getElementById("bytecode-view").textContent = data.bytecode;
+
+                // Render Phase 7: Execution Results
+                resContainer.innerHTML = "";
+                data.execution.forEach((exec, idx) => {
+                    const div = document.createElement("div");
+                    div.style.marginBottom = "20px";
+
+                    let header = `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
+                        <span style="font-weight:700; color:var(--accent-cyan);">Statement ${idx+1} [${exec.type}]</span>
+                        <span class="metric-pill">⏱ ${exec.elapsed_ms} ms</span>
+                    </div>`;
+
+                    if (exec.rows && exec.rows.length > 0) {
+                        let cols = exec.columns || Object.keys(exec.rows[0]);
+                        let ths = cols.map(c => `<th>${c}</th>`).join("");
+                        let trs = exec.rows.map(r => 
+                            `<tr>${cols.map(c => `<td>${r[c] !== null ? r[c] : '<span style="color:#6b7280;">NULL</span>'}</td>`).join("")}</tr>`
+                        ).join("");
+
+                        div.innerHTML = `${header}<table class="data-table"><thead><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
+                    } else {
+                        const message = exec.type === "SELECT"
+                            ? "0 rows returned"
+                            : `OK: ${exec.rows_affected} row(s) affected`;
+                        div.innerHTML = `${header}<div style="color:var(--accent-green); font-weight:600;">${message}</div>`;
+                    }
+                    resContainer.appendChild(div);
+                });
+
+                // Refresh schema in case of DDL
+                loadSchema();
+
+            } catch (err) {
+                resContainer.innerHTML = `<div class="error-box">Error executing pipeline: ${err.message}</div>`;
+            }
+        }
+
+        // Load schema on start
+        loadSchema();
+    </script>
+</body>
+</html>

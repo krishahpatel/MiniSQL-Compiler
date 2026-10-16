@@ -1,0 +1,133 @@
+{
+  "tables": [
+    {
+      "name": "students",
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": true
+        },
+        {
+          "name": "name",
+          "type_name": "TEXT",
+          "position": 1,
+          "primary_key": false
+        },
+        {
+          "name": "age",
+          "type_name": "INT",
+          "position": 2,
+          "primary_key": false
+        },
+        {
+          "name": "gpa",
+          "type_name": "FLOAT",
+          "position": 3,
+          "primary_key": false
+        },
+        {
+          "name": "active",
+          "type_name": "BOOL",
+          "position": 4,
+          "primary_key": false
+        }
+      ]
+    },
+    {
+      "name": "courses",
+      "columns": [
+        {
+          "name": "course_id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": true
+        },
+        {
+          "name": "title",
+          "type_name": "TEXT",
+          "position": 1,
+          "primary_key": false
+        },
+        {
+          "name": "credits",
+          "type_name": "INT",
+          "position": 2,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type_name": "TEXT",
+          "position": 3,
+          "primary_key": false
+        }
+      ]
+    },
+    {
+      "name": "enrollments",
+      "columns": [
+        {
+          "name": "student_id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": false
+        },
+        {
+          "name": "course_id",
+          "type_name": "INT",
+          "position": 1,
+          "primary_key": false
+        },
+        {
+          "name": "grade",
+          "type_name": "FLOAT",
+          "position": 2,
+          "primary_key": false
+        },
+        {
+          "name": "semester",
+          "type_name": "TEXT",
+          "position": 3,
+          "primary_key": false
+        }
+      ]
+    },
+    {
+      "name": "employees",
+      "columns": [
+        {
+          "name": "emp_id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": true
+        },
+        {
+          "name": "name",
+          "type_name": "TEXT",
+          "position": 1,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type_name": "TEXT",
+          "position": 2,
+          "primary_key": false
+        },
+        {
+          "name": "salary",
+          "type_name": "FLOAT",
+          "position": 3,
+          "primary_key": false
+        },
+        {
+          "name": "manager_id",
+          "type_name": "INT",
+          "position": 4,
+          "primary_key": false
+        }
+      ]
+    }
+  ],
+  "row_counts": {}
+}

@@ -1,0 +1,2628 @@
+{
+  "students": {
+    "schema": {
+      "name": "students",
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": true
+        },
+        {
+          "name": "name",
+          "type_name": "TEXT",
+          "position": 1,
+          "primary_key": false
+        },
+        {
+          "name": "age",
+          "type_name": "INT",
+          "position": 2,
+          "primary_key": false
+        },
+        {
+          "name": "gpa",
+          "type_name": "FLOAT",
+          "position": 3,
+          "primary_key": false
+        },
+        {
+          "name": "active",
+          "type_name": "BOOL",
+          "position": 4,
+          "primary_key": false
+        }
+      ]
+    },
+    "rows": [
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      },
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      },
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      },
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      },
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      },
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      },
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      },
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      },
+      {
+        "id": 1,
+        "name": "Alice Johnson",
+        "age": 20,
+        "gpa": 3.8,
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Bob Smith",
+        "age": 22,
+        "gpa": 3.2,
+        "active": true
+      },
+      {
+        "id": 3,
+        "name": "Carol White",
+        "age": 21,
+        "gpa": 3.9,
+        "active": true
+      },
+      {
+        "id": 4,
+        "name": "David Brown",
+        "age": 23,
+        "gpa": 2.7,
+        "active": false
+      },
+      {
+        "id": 5,
+        "name": "Emma Davis",
+        "age": 20,
+        "gpa": 3.5,
+        "active": true
+      },
+      {
+        "id": 6,
+        "name": "Frank Miller",
+        "age": 24,
+        "gpa": 3.1,
+        "active": true
+      },
+      {
+        "id": 7,
+        "name": "Grace Wilson",
+        "age": 22,
+        "gpa": 3.7,
+        "active": true
+      },
+      {
+        "id": 8,
+        "name": "Henry Moore",
+        "age": 21,
+        "gpa": 2.9,
+        "active": false
+      }
+    ]
+  },
+  "courses": {
+    "schema": {
+      "name": "courses",
+      "columns": [
+        {
+          "name": "course_id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": true
+        },
+        {
+          "name": "title",
+          "type_name": "TEXT",
+          "position": 1,
+          "primary_key": false
+        },
+        {
+          "name": "credits",
+          "type_name": "INT",
+          "position": 2,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type_name": "TEXT",
+          "position": 3,
+          "primary_key": false
+        }
+      ]
+    },
+    "rows": [
+      {
+        "course_id": 101,
+        "title": "Compiler Design",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 102,
+        "title": "Database Systems",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 103,
+        "title": "Operating Systems",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 104,
+        "title": "Linear Algebra",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 105,
+        "title": "Machine Learning",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 106,
+        "title": "Discrete Mathematics",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 101,
+        "title": "Compiler Design",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 102,
+        "title": "Database Systems",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 103,
+        "title": "Operating Systems",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 104,
+        "title": "Linear Algebra",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 105,
+        "title": "Machine Learning",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 106,
+        "title": "Discrete Mathematics",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 101,
+        "title": "Compiler Design",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 102,
+        "title": "Database Systems",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 103,
+        "title": "Operating Systems",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 104,
+        "title": "Linear Algebra",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 105,
+        "title": "Machine Learning",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 106,
+        "title": "Discrete Mathematics",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 101,
+        "title": "Compiler Design",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 102,
+        "title": "Database Systems",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 103,
+        "title": "Operating Systems",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 104,
+        "title": "Linear Algebra",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 105,
+        "title": "Machine Learning",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 106,
+        "title": "Discrete Mathematics",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 101,
+        "title": "Compiler Design",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 102,
+        "title": "Database Systems",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 103,
+        "title": "Operating Systems",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 104,
+        "title": "Linear Algebra",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 105,
+        "title": "Machine Learning",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 106,
+        "title": "Discrete Mathematics",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 101,
+        "title": "Compiler Design",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 102,
+        "title": "Database Systems",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 103,
+        "title": "Operating Systems",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 104,
+        "title": "Linear Algebra",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 105,
+        "title": "Machine Learning",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 106,
+        "title": "Discrete Mathematics",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 101,
+        "title": "Compiler Design",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 102,
+        "title": "Database Systems",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 103,
+        "title": "Operating Systems",
+        "credits": 3,
+        "department": "CS"
+      },
+      {
+        "course_id": 104,
+        "title": "Linear Algebra",
+        "credits": 3,
+        "department": "MATH"
+      },
+      {
+        "course_id": 105,
+        "title": "Machine Learning",
+        "credits": 4,
+        "department": "CS"
+      },
+      {
+        "course_id": 106,
+        "title": "Discrete Mathematics",
+        "credits": 3,
+        "department": "MATH"
+      }
+    ]
+  },
+  "enrollments": {
+    "schema": {
+      "name": "enrollments",
+      "columns": [
+        {
+          "name": "student_id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": false
+        },
+        {
+          "name": "course_id",
+          "type_name": "INT",
+          "position": 1,
+          "primary_key": false
+        },
+        {
+          "name": "grade",
+          "type_name": "FLOAT",
+          "position": 2,
+          "primary_key": false
+        },
+        {
+          "name": "semester",
+          "type_name": "TEXT",
+          "position": 3,
+          "primary_key": false
+        }
+      ]
+    },
+    "rows": [
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 101,
+        "grade": 9.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 1,
+        "course_id": 102,
+        "grade": 8.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 101,
+        "grade": 7.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 2,
+        "course_id": 103,
+        "grade": 8.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 102,
+        "grade": 9.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 3,
+        "course_id": 105,
+        "grade": 9.5,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 4,
+        "course_id": 104,
+        "grade": 6.2,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 101,
+        "grade": 8.9,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 5,
+        "course_id": 105,
+        "grade": 9.1,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 6,
+        "course_id": 102,
+        "grade": 7.8,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 7,
+        "course_id": 103,
+        "grade": 8.6,
+        "semester": "Fall2024"
+      },
+      {
+        "student_id": 8,
+        "course_id": 104,
+        "grade": 5.9,
+        "semester": "Fall2024"
+      }
+    ]
+  },
+  "employees": {
+    "schema": {
+      "name": "employees",
+      "columns": [
+        {
+          "name": "emp_id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": true
+        },
+        {
+          "name": "name",
+          "type_name": "TEXT",
+          "position": 1,
+          "primary_key": false
+        },
+        {
+          "name": "department",
+          "type_name": "TEXT",
+          "position": 2,
+          "primary_key": false
+        },
+        {
+          "name": "salary",
+          "type_name": "FLOAT",
+          "position": 3,
+          "primary_key": false
+        },
+        {
+          "name": "manager_id",
+          "type_name": "INT",
+          "position": 4,
+          "primary_key": false
+        }
+      ]
+    },
+    "rows": [
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 1,
+        "name": "Sarah Connor",
+        "department": "Engineering",
+        "salary": 95000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 2,
+        "name": "John Doe",
+        "department": "Engineering",
+        "salary": 75000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 3,
+        "name": "Jane Smith",
+        "department": "Marketing",
+        "salary": 65000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 4,
+        "name": "Mike Johnson",
+        "department": "Engineering",
+        "salary": 80000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 5,
+        "name": "Lisa Anderson",
+        "department": "Marketing",
+        "salary": 55000.0,
+        "manager_id": 3
+      },
+      {
+        "emp_id": 6,
+        "name": "Tom Wilson",
+        "department": "HR",
+        "salary": 60000.0,
+        "manager_id": null
+      },
+      {
+        "emp_id": 7,
+        "name": "Emma Brown",
+        "department": "Engineering",
+        "salary": 85000.0,
+        "manager_id": 1
+      },
+      {
+        "emp_id": 8,
+        "name": "Chris Taylor",
+        "department": "HR",
+        "salary": 58000.0,
+        "manager_id": 6
+      },
+      {
+        "emp_id": 9,
+        "name": "Amy Martinez",
+        "department": "Engineering",
+        "salary": 72000.0,
+        "manager_id": 4
+      },
+      {
+        "emp_id": 10,
+        "name": "Robert Garcia",
+        "department": "Marketing",
+        "salary": 70000.0,
+        "manager_id": 3
+      }
+    ]
+  },
+  "assignment": {
+    "schema": {
+      "name": "assignment",
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "INT",
+          "position": 0,
+          "primary_key": false
+        },
+        {
+          "name": "subject",
+          "type_name": "TEXT",
+          "position": 1,
+          "primary_key": false
+        }
+      ]
+    },
+    "rows": []
+  }
+}
