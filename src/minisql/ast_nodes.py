@@ -314,169 +314,185 @@ class Program(Node):
 
 
 # ---------------------------------------------------------------------------
-# AST pretty printer
+# AST tree printer
 # ---------------------------------------------------------------------------
 
-def _indent(level: int) -> str:
-    return "  " * level
+@dataclass
+class _TreeGroup:
+    label: str
+    children: List[tuple[str, Any]]
 
 
 def pretty_print(node: Node, level: int = 0) -> str:
-    """Recursively produce a human-readable textual dump of the AST."""
-    ind   = _indent(level)
-    name  = type(node).__name__
+    """Render the AST with branch connectors to show parent/child structure."""
 
-    if isinstance(node, Program):
-        lines = [f"{ind}Program:"]
-        for s in node.statements:
-            lines.append(pretty_print(s, level + 1))
-        return "\n".join(lines)
+    def tree_parts(current: Node) -> tuple[str, List[tuple[str, Any]]]:
+        if isinstance(current, Program):
+            return "Program", [
+                (f"Statement {index}", statement)
+                for index, statement in enumerate(current.statements, start=1)
+            ]
+        if isinstance(current, Literal):
+            return f"Literal({current.kind}, {current.value!r})", []
+        if isinstance(current, ColumnRef):
+            qualifier = f"{current.table}." if current.table else ""
+            return f"ColumnRef({qualifier}{current.column})", []
+        if isinstance(current, Star):
+            qualifier = f"{current.table}." if current.table else ""
+            return f"Star({qualifier}*)", []
+        if isinstance(current, BinaryOp):
+            return f"BinaryOp({current.op})", [
+                ("Left", current.left),
+                ("Right", current.right),
+            ]
+        if isinstance(current, UnaryOp):
+            return f"UnaryOp({current.op})", [("Operand", current.operand)]
+        if isinstance(current, BetweenExpr):
+            return f"Between(negated={current.negated})", [
+                ("Expression", current.expr),
+                ("Lower bound", current.lo),
+                ("Upper bound", current.hi),
+            ]
+        if isinstance(current, InListExpr):
+            children = [("Expression", current.expr)]
+            children.extend(
+                (f"Value {index}", value)
+                for index, value in enumerate(current.values, start=1)
+            )
+            return f"In(negated={current.negated})", children
+        if isinstance(current, LikeExpr):
+            return f"Like(negated={current.negated})", [
+                ("Expression", current.expr),
+                ("Pattern", current.pattern),
+            ]
+        if isinstance(current, IsNullExpr):
+            return f"IsNull(negated={current.negated})", [
+                ("Expression", current.expr)
+            ]
+        if isinstance(current, FunctionCall):
+            label = f"FunctionCall({current.func})"
+            if current.arg is None:
+                return f"{label}(*)", []
+            return label, [("Argument", current.arg)]
+        if isinstance(current, SelectItem):
+            label = "SelectItem"
+            if current.alias:
+                label += f" AS {current.alias}"
+            return label, [("Expression", current.expr)]
+        if isinstance(current, TableRef):
+            label = f"Table({current.name})"
+            if current.alias:
+                label += f" AS {current.alias}"
+            return label, []
+        if isinstance(current, JoinClause):
+            children = [("Table", current.table)]
+            if current.condition is not None:
+                children.append(("ON", current.condition))
+            return f"Join({current.join_type})", children
+        if isinstance(current, OrderByItem):
+            return f"OrderBy({current.direction})", [("Expression", current.expr)]
+        if isinstance(current, ColumnDef):
+            primary_key = ", PRIMARY KEY" if current.primary_key else ""
+            return f"Column({current.name}: {current.type_name}{primary_key})", []
+        if isinstance(current, CreateTableStmt):
+            return f"CreateTable({current.table_name})", [
+                ("Column", column) for column in current.columns
+            ]
+        if isinstance(current, InsertStmt):
+            columns = ", ".join(current.columns) if current.columns else "<all>"
+            children = []
+            for row_index, row in enumerate(current.value_rows, start=1):
+                children.append((
+                    f"Values row {row_index}",
+                    _TreeGroup("Row", [
+                        (f"Value {index}", value)
+                        for index, value in enumerate(row, start=1)
+                    ]),
+                ))
+            return f"Insert({current.table_name}, columns=[{columns}])", children
+        if isinstance(current, SelectStmt):
+            children = [(
+                "Projection",
+                _TreeGroup("Select List", [
+                    (f"Item {index}", item)
+                    for index, item in enumerate(current.items, start=1)
+                ]),
+            )]
+            if current.from_table:
+                children.append(("From", current.from_table))
+            children.extend(("Join", join) for join in current.joins)
+            if current.where:
+                children.append(("Where", current.where))
+            if current.group_by:
+                children.append((
+                    "Group By",
+                    _TreeGroup("Expressions", [
+                        (f"Expression {index}", expression)
+                        for index, expression in enumerate(current.group_by, start=1)
+                    ]),
+                ))
+            if current.having:
+                children.append(("Having", current.having))
+            if current.order_by:
+                children.append((
+                    "Order By",
+                    _TreeGroup("Orderings", [
+                        (f"Ordering {index}", order)
+                        for index, order in enumerate(current.order_by, start=1)
+                    ]),
+                ))
+            if current.limit is not None:
+                children.append((
+                    "Limit",
+                    _TreeGroup(str(current.limit), []),
+                ))
+            return f"Select(distinct={current.distinct})", children
+        if isinstance(current, Assignment):
+            return f"Assignment({current.column})", [("Value", current.value)]
+        if isinstance(current, UpdateStmt):
+            children = [("Assignment", assignment) for assignment in current.assignments]
+            if current.where:
+                children.append(("Where", current.where))
+            return f"Update({current.table_name})", children
+        if isinstance(current, DeleteStmt):
+            children = []
+            if current.where:
+                children.append(("Where", current.where))
+            return f"Delete({current.table_name})", children
+        if isinstance(current, DropTableStmt):
+            return f"DropTable({current.table_name})", []
+        return type(current).__name__, []
 
-    if isinstance(node, Literal):
-        return f"{ind}Literal({node.kind}, {node.value!r})"
+    def render(
+        current: Node,
+        prefix: str,
+        is_last: bool,
+        root: bool = False,
+        edge_label: Optional[str] = None,
+    ) -> List[str]:
+        if isinstance(current, _TreeGroup):
+            label, children = current.label, current.children
+        else:
+            label, children = tree_parts(current)
+        if root:
+            line = "  " * level + label
+        else:
+            connector = "└── " if is_last else "├── "
+            branch_label = f"{edge_label}: " if edge_label else ""
+            line = prefix + connector + branch_label + label
+        child_prefix = (
+            prefix if root else prefix + ("    " if is_last else "│   ")
+        )
+        lines = [line]
+        for index, (child_label, child) in enumerate(children):
+            lines.extend(
+                render(
+                    child,
+                    child_prefix,
+                    index == len(children) - 1,
+                    edge_label=child_label,
+                )
+            )
+        return lines
 
-    if isinstance(node, ColumnRef):
-        qual = f"{node.table}." if node.table else ""
-        return f"{ind}ColumnRef({qual}{node.column})"
-
-    if isinstance(node, Star):
-        qual = f"{node.table}." if node.table else ""
-        return f"{ind}Star({qual}*)"
-
-    if isinstance(node, BinaryOp):
-        lines = [f"{ind}BinaryOp({node.op!r})"]
-        lines.append(pretty_print(node.left,  level + 1))
-        lines.append(pretty_print(node.right, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, UnaryOp):
-        lines = [f"{ind}UnaryOp({node.op!r})"]
-        lines.append(pretty_print(node.operand, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, BetweenExpr):
-        lines = [f"{ind}Between(negated={node.negated})"]
-        lines.append(pretty_print(node.expr, level + 1))
-        lines.append(pretty_print(node.lo,   level + 1))
-        lines.append(pretty_print(node.hi,   level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, InListExpr):
-        lines = [f"{ind}In(negated={node.negated})"]
-        lines.append(pretty_print(node.expr, level + 1))
-        for v in node.values:
-            lines.append(pretty_print(v, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, LikeExpr):
-        lines = [f"{ind}Like(negated={node.negated})"]
-        lines.append(pretty_print(node.expr,    level + 1))
-        lines.append(pretty_print(node.pattern, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, IsNullExpr):
-        lines = [f"{ind}IsNull(negated={node.negated})"]
-        lines.append(pretty_print(node.expr, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, FunctionCall):
-        arg_str = "*" if node.arg is None else ""
-        lines = [f"{ind}FunctionCall({node.func}, {arg_str})"]
-        if node.arg is not None:
-            lines.append(pretty_print(node.arg, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, SelectItem):
-        alias = f" AS {node.alias}" if node.alias else ""
-        lines = [f"{ind}SelectItem{alias}"]
-        lines.append(pretty_print(node.expr, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, TableRef):
-        alias = f" AS {node.alias}" if node.alias else ""
-        return f"{ind}TableRef({node.name}{alias})"
-
-    if isinstance(node, JoinClause):
-        lines = [f"{ind}JoinClause({node.join_type})"]
-        lines.append(pretty_print(node.table, level + 1))
-        if node.condition:
-            lines.append(pretty_print(node.condition, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, OrderByItem):
-        lines = [f"{ind}OrderBy({node.direction})"]
-        lines.append(pretty_print(node.expr, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, ColumnDef):
-        pk = " PK" if node.primary_key else ""
-        return f"{ind}ColumnDef({node.name}: {node.type_name}{pk})"
-
-    if isinstance(node, CreateTableStmt):
-        lines = [f"{ind}CreateTable({node.table_name})"]
-        for col in node.columns:
-            lines.append(pretty_print(col, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, InsertStmt):
-        cols = ", ".join(node.columns) if node.columns else "<all>"
-        lines = [f"{ind}Insert({node.table_name}, cols=[{cols}])"]
-        for row in node.value_rows:
-            lines.append(f"{_indent(level+1)}Row:")
-            for v in row:
-                lines.append(pretty_print(v, level + 2))
-        return "\n".join(lines)
-
-    if isinstance(node, SelectStmt):
-        d = " DISTINCT" if node.distinct else ""
-        lines = [f"{ind}Select{d}"]
-        for item in node.items:
-            lines.append(pretty_print(item, level + 1))
-        if node.from_table:
-            lines.append(pretty_print(node.from_table, level + 1))
-        for j in node.joins:
-            lines.append(pretty_print(j, level + 1))
-        if node.where:
-            lines.append(f"{_indent(level+1)}Where:")
-            lines.append(pretty_print(node.where, level + 2))
-        if node.group_by:
-            lines.append(f"{_indent(level+1)}GroupBy:")
-            for g in node.group_by:
-                lines.append(pretty_print(g, level + 2))
-        if node.having:
-            lines.append(f"{_indent(level+1)}Having:")
-            lines.append(pretty_print(node.having, level + 2))
-        if node.order_by:
-            lines.append(f"{_indent(level+1)}OrderBy:")
-            for o in node.order_by:
-                lines.append(pretty_print(o, level + 2))
-        if node.limit is not None:
-            lines.append(f"{_indent(level+1)}Limit({node.limit})")
-        return "\n".join(lines)
-
-    if isinstance(node, Assignment):
-        lines = [f"{ind}Set({node.column})"]
-        lines.append(pretty_print(node.value, level + 1))
-        return "\n".join(lines)
-
-    if isinstance(node, UpdateStmt):
-        lines = [f"{ind}Update({node.table_name})"]
-        for a in node.assignments:
-            lines.append(pretty_print(a, level + 1))
-        if node.where:
-            lines.append(f"{_indent(level+1)}Where:")
-            lines.append(pretty_print(node.where, level + 2))
-        return "\n".join(lines)
-
-    if isinstance(node, DeleteStmt):
-        lines = [f"{ind}Delete({node.table_name})"]
-        if node.where:
-            lines.append(f"{_indent(level+1)}Where:")
-            lines.append(pretty_print(node.where, level + 2))
-        return "\n".join(lines)
-
-    if isinstance(node, DropTableStmt):
-        return f"{ind}DropTable({node.table_name})"
-
-    # Fallback
-    return f"{ind}{name}(...)"
+    return "\n".join(render(node, "", True, root=True))
